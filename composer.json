@@ -1,0 +1,36 @@
+{
+  "name": "somarkn99/laravel-db-backup-scheduling",
+  "description": "Login With Social Media Package",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "package",
+    "somar",
+    "somar kesen",
+    "syria",
+    "syrian"
+  ],
+  "authors": [
+    {
+      "name": "Somar Kesen",
+      "email": "contact@somar-kesen.com",
+      "homepage": "https://github.com/somarkn99",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "illuminate/support": ">=5.0",
+    "somarkn99/laravelDbBackupScheduling": "dev-master@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "somarkn99\\laravelDbBackupScheduling\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "minimum-stability": "stable"
+}
