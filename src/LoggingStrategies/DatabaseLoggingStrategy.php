@@ -8,11 +8,11 @@ use somarkn99\laravelDbBackupScheduling\Contracts\BackupLoggerInterface;
 
 class DatabaseLoggingStrategy implements BackupLoggerInterface
 {
-    protected  $filename;
+    protected  $logFilePath;
 
-    public function __construct(string $filename)
+    public function __construct()
     {
-        $this->filename = $filename;
+        $this->logFilePath = storage_path('logs/backup.log');
     }
 
     public function logBackupSuccess(string $file_path, int $size): void
@@ -21,7 +21,7 @@ class DatabaseLoggingStrategy implements BackupLoggerInterface
 
         $logMessage = "[$timestamp] File_Path: $file_path | Size: $size KB | Status: Success" . PHP_EOL;
 
-        file_put_contents($this->filename, $logMessage, FILE_APPEND);
+        file_put_contents($this->logFilePath, $logMessage, FILE_APPEND);
     }
 
     // implementation function that appends the failure log to a file
@@ -31,7 +31,7 @@ class DatabaseLoggingStrategy implements BackupLoggerInterface
 
         $logMessage = "[$timestamp] Backup Failure: $error | Status: Failure" . PHP_EOL;
 
-        file_put_contents($this->filename, $logMessage, FILE_APPEND);
+        file_put_contents($this->logFilePath, $logMessage, FILE_APPEND);
     }
 
 }

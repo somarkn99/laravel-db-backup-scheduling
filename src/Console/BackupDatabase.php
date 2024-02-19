@@ -29,7 +29,7 @@ class BackupDatabase extends Command
         $result = $storageStrategy->save($filePath);
 
         // Create an instance object 
-        $logger = new DatabaseLoggingStrategy('backup.log');
+        $logger = new DatabaseLoggingStrategy();
 
         if ($result) {
             $this->info('Database backup was successful.');
